@@ -1,17 +1,14 @@
 {
-	"name": "try-line-messaging-api",
-	"type": "module",
-	"scripts": {
-		"start": "vercel dev",
-		"deploy": "vercel"
-	},
-	"dependencies": {
-		"hono": "^4.7.4",
-		"wrangler": "^4.0.0"
-	},
-	"devDependencies": {
-		"@types/node": "^22.13.10",
-		"vercel": "^32.4.1"
-	},
-	"packageManager": "pnpm@10.6.2"
+  "name": "try-line-messaging-api",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy --minify"
+  },
+  "dependencies": {
+    "hono": "^4.7.4"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20250214.0",
+    "wrangler": "^3.109.2"
+  }
 }

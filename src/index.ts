@@ -1,5 +1,4 @@
 // biome-ignore lint/style/useNodejsImportProtocol: <explanation>
-import crypto from "crypto";
 import { Hono } from "hono";
 import type { WebhookEventObject } from "./webhook-object";
 
