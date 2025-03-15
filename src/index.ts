@@ -8,8 +8,7 @@ const app = new Hono();
 
 app.post("/", async (c) => {
 	console.log("called");
-	// biome-ignore lint/style/noNonNullAssertion: <explanation>
-	const channelSecret = process.env.CHANNEL_SECRET!;
+	const channelSecret = c.env.CHANNEL_SECRET!;
 
 	const body: WebhookEventObject = await c.req.json();
 	const header = c.req.header("x-line-signature");
@@ -33,7 +32,8 @@ app.post("/", async (c) => {
 			sendMessage({
 				messages: ["Hello, world!"],
 				replyToken,
-				toUserId: body.events[0].source.userId,
+				// biome-ignore lint/style/noNonNullAssertion: <explanation>
+				channelAccessToken: c.env.CHANNEL_ACCESS_TOKEN!,
 			}),
 		),
 	);
@@ -44,13 +44,13 @@ app.post("/", async (c) => {
 async function sendMessage({
 	messages,
 	replyToken,
-	toUserId,
-}: { messages: string[]; replyToken: string; toUserId: string }) {
+	channelAccessToken,
+}: { messages: string[]; replyToken: string; channelAccessToken: string }) {
 	const url = "https://api.line.me/v2/bot/message/reply";
 
 	const headers = {
 		"Content-Type": "application/json",
-		Authorization: `Bearer ${process.env.CHANNEL_ACCESS_TOKEN}`,
+		Authorization: `Bearer ${channelAccessToken}`,
 	};
 
 	const body = {
