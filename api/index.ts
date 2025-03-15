@@ -40,7 +40,7 @@ app.get("/", async (c) => {
 		),
 	);
 
-	return new Response("ok", { status: 200 });
+	return c.json({ message: "ok" });
 });
 
 async function sendMessage({
