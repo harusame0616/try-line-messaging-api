@@ -4,7 +4,7 @@ import type { WebhookEventObject } from "./webhook-object";
 
 const app = new Hono();
 
-app.get("/", async (c) => {
+app.post("/", async (c) => {
 	console.log("called");
 	// biome-ignore lint/style/noNonNullAssertion: <explanation>
 	const channelSecret = process.env.CHANNEL_SECRET!;
