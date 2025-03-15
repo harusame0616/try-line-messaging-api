@@ -1,7 +1,10 @@
 import { Hono } from "hono";
 import { handle } from "hono/vercel";
-import crypto from "node:crypto";
+// biome-ignore lint/style/useNodejsImportProtocol: <explanation>
+import crypto from "crypto";
 import type { WebhookEventObject } from "./webhook-object";
+
+export const runtime = "edge";
 
 const app = new Hono().basePath("/api");
 
