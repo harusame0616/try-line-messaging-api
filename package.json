@@ -8,6 +8,7 @@
     "hono": "^4.7.4"
   },
   "devDependencies": {
+    "@types/node": "^22.13.10",
     "vercel": "^32.4.1"
   }
 }
