@@ -3,10 +3,6 @@ import { handle } from "hono/vercel";
 import crypto from "node:crypto";
 import type { WebhookEventObject } from "./webhook-object";
 
-export const config = {
-	runtime: "edge",
-};
-
 const app = new Hono().basePath("/api");
 
 app.get("/", async (c) => {
