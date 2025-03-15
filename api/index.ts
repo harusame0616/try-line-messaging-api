@@ -9,7 +9,7 @@ export const runtime = "edge";
 const app = new Hono().basePath("/api");
 
 app.get("/", async (c) => {
-	console.log("called", c.req);
+	console.log("called");
 	// biome-ignore lint/style/noNonNullAssertion: <explanation>
 	const channelSecret = process.env.CHANNEL_SECRET!;
 
