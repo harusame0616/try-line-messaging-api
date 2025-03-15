@@ -2,9 +2,7 @@
 import { Hono } from "hono";
 import type { WebhookEventObject } from "./webhook-object";
 
-export const runtime = "edge";
-
-const app = new Hono().basePath("/api");
+const app = new Hono();
 
 app.get("/", async (c) => {
 	console.log("called");
