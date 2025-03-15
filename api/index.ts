@@ -1,7 +1,6 @@
-import { Hono } from "hono";
-import { handle } from "hono/vercel";
 // biome-ignore lint/style/useNodejsImportProtocol: <explanation>
 import crypto from "crypto";
+import { Hono } from "hono";
 import type { WebhookEventObject } from "./webhook-object";
 
 export const runtime = "edge";
@@ -71,4 +70,5 @@ async function sendMessage({
 
 	return response.json();
 }
-export default handle(app);
+
+export default app;
